@@ -1,0 +1,64 @@
+name: Build & Publish mldatascience-notebook
+
+on:
+  push:
+    branches:    
+      - tgmc-master
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Build & Publish Docker Image
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Configure environment
+      id: config
+      run: |
+        DOCKER_TAG=$(echo ${GITHUB_REF} | sed -e 's/refs\/tags\///')
+        echo ::set-output name=version::$DOCKER_TAG
+
+    - name: Publish docker
+      id: docker-dev
+      uses: yjcyxky/docker-action@master
+      if: github.ref == 'refs/heads/dev'
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: pgx-docker-registry/igv-webapp
+        tag: ${{ steps.config.outputs.version }}
+        flag: test
+
+    - name: Publish docker
+      id: docker-master
+      uses: yjcyxky/docker-action@master
+      if: github.ref == 'refs/heads/tgmc-master'
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        repository: pgx-docker-registry/igv-webapp
+        tag: ${{ steps.config.outputs.version }}
+
+    - name: Dingtalk Robot Message
+      uses: fifsky/dingtalk-action@master
+      if: success()
+      with:
+        url: ${{ secrets.DINGTALK_WEBHOOK }}
+        type: markdown
+        content: |
+          # [SUCCESS] IGV Webapp 镜像自动构建
+          点击<a href="hhttps://github.com/clinico-omics/igv-webapp">igv-webapp</a> 查看详情
+        at: Choppy Team
+
+    - name: Dingtalk Robot Message
+      uses: fifsky/dingtalk-action@master
+      if: failure()
+      with:
+        url: ${{ secrets.DINGTALK_WEBHOOK }}
+        type: markdown
+        content: |
+          # [FAILED] IGV Webapp 镜像自动构建
+          点击<a href="https://github.com/clinico-omics/igv-webapp">igv-webapp</a> 查看详情
+        at: Choppy Team
