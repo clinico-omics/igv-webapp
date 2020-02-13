@@ -1,10 +1,11 @@
-name: Build & Publish mldatascience-notebook
+name: Build & Publish IGV Webapp
 
 on:
   push:
     branches:    
-      - tgmc-master
       - dev
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
     - name: Configure environment
       id: config
       run: |
-        DOCKER_TAG=$(echo ${GITHUB_REF} | sed -e 's/refs\/tags\///')
+        DOCKER_TAG=$(echo ${GITHUB_REF} | grep 'tags' | sed -e 's/refs\/tags\///')
         echo ::set-output name=version::$DOCKER_TAG
 
     - name: Publish docker
@@ -27,7 +28,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: pgx-docker-registry/igv-webapp
+        registry: registry.cn-shanghai.aliyuncs.com/pgx-docker-registry
+        repository: igv-webapp
         tag: ${{ steps.config.outputs.version }}
         flag: test
 
@@ -38,7 +40,8 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: pgx-docker-registry/igv-webapp
+        registry: registry.cn-shanghai.aliyuncs.com/pgx-docker-registry
+        repository: igv-webapp
         tag: ${{ steps.config.outputs.version }}
 
     - name: Dingtalk Robot Message
@@ -48,8 +51,8 @@ jobs:
         url: ${{ secrets.DINGTALK_WEBHOOK }}
         type: markdown
         content: |
-          # [SUCCESS] IGV Webapp 镜像自动构建
-          点击<a href="hhttps://github.com/clinico-omics/igv-webapp">igv-webapp</a> 查看详情
+          #### [SUCCESS] IGV Webapp 镜像自动构建
+          点击 [igv-webapp](https://github.com/clinico-omics/igv-webapp) 查看详情
         at: Choppy Team
 
     - name: Dingtalk Robot Message
@@ -59,6 +62,6 @@ jobs:
         url: ${{ secrets.DINGTALK_WEBHOOK }}
         type: markdown
         content: |
-          # [FAILED] IGV Webapp 镜像自动构建
-          点击<a href="https://github.com/clinico-omics/igv-webapp">igv-webapp</a> 查看详情
+          #### [FAILED] IGV Webapp 镜像自动构建
+          点击 [igv-webapp](https://github.com/clinico-omics/igv-webapp) 查看详情
         at: Choppy Team
