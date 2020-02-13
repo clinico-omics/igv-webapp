@@ -19,35 +19,46 @@
     <link rel="stylesheet" href="css/fontawesome/all.css">
 
     <!-- Bootstrap 4 CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="css/mirrors/bootstrap.min.css">
 
     <!-- DataTables CSS -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <!-- <link rel="stylesheet" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/> -->
+    <link rel="stylesheet" href="css/mirrors/jquery.dataTables.min.css">
 
     <!-- APP CSS -->
     <link rel="stylesheet" href="css/app.css">
 
     <!-- IGV JS-->
-    <script src="https://cdn.jsdelivr.net/npm/igv@2.3.5/dist/igv.min.js"></script>
-<!--    <script src="https://igv.org/web/snapshot/dist/igv.min.js"></script>-->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/igv@2.3.5/dist/igv.min.js"></script> -->
+    <!-- <script src="https://igv.org/web/snapshot/dist/igv.min.js"></script> -->
+    <script src="js/mirrors/igv.min.js"></script>
 
 
     <!-- Dropbox Chooser API-->
-    <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="8glijwyao9fq8we"></script>
+    <!-- <script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="8glijwyao9fq8we"></script> -->
 
     <!-- Bootstrap 4 and Dependancies -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script> -->
+    <script src="js/mirrors/jquery-3.3.1.slim.min.js"></script>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script> -->
+    <script src="js/mirrors/popper.min.js"></script>
+
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> -->
+    <script src="js/mirrors/bootstrap.min.js"></script>
 
     <!-- Datatables JS -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script> -->
+    <script src="js/mirrors/jquery.dataTables.min.js"></script>
 
     <!-- Google Platform JS -->
-    <script src="https://apis.google.com/js/platform.js"></script>
+    <!-- <script src="https://apis.google.com/js/platform.js"></script> -->
+    <script src="js/mirrors/platform.js"></script>
 
     <!-- Twitter -->
-    <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <!-- <script src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+    <script src="js/mirrors/widgets.js" charset="utf-8"></script>
 
     <!-- IGV web config object -- plain old javascript -->
 
@@ -96,7 +107,7 @@
                         </label>
 
                         <!-- Dropbox -->
-                        <div class="dropdown-item">
+                        <!-- <div class="dropdown-item">
 
                             <div id="igv-app-dropdown-dropbox-genome-file-button"
                                  class="igv-app-dropdown-item-cloud-storage">
@@ -107,17 +118,17 @@
 
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <!-- Google Drive -->
-                        <div class="dropdown-item">
+                        <!-- <div class="dropdown-item">
                             <div id="igv-app-dropdown-google-drive-genome-file-button"
                                  class="igv-app-dropdown-item-cloud-storage">
                                 <div>Google Drive</div>
                                 <div><img src="img/googledrive-dropdown-menu-item.png" width="18" height="18"></div>
                                 <div>...</div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- URL -->
                         <button class="dropdown-item" type="button" data-toggle="modal"
@@ -156,7 +167,7 @@
                         </label>
 
                         <!-- Dropbox -->
-                        <div class="dropdown-item">
+                        <!-- <div class="dropdown-item">
 
                             <div id="igv-app-dropdown-dropbox-track-file-button"
                                  class="igv-app-dropdown-item-cloud-storage">
@@ -167,17 +178,17 @@
 
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <!-- Google Drive -->
-                        <div class="dropdown-item">
+                        <!-- <div class="dropdown-item">
                             <div id="igv-app-dropdown-google-drive-track-file-button"
                                  class="igv-app-dropdown-item-cloud-storage">
                                 <div>Google Drive</div>
                                 <div><img src="img/googledrive-dropdown-menu-item.png" width="18" height="18"></div>
                                 <div>...</div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- URL -->
                         <button class="dropdown-item" type="button" data-toggle="modal"
@@ -215,7 +226,7 @@
                         </label>
 
                         <!-- Load Dropbox hosted session file -->
-                        <div class="dropdown-item">
+                        <!-- <div class="dropdown-item">
 
                             <div id="igv-app-dropdown-dropbox-session-file-button"
                                  class="igv-app-dropdown-item-cloud-storage">
@@ -226,17 +237,17 @@
 
                             </div>
 
-                        </div>
+                        </div> -->
 
                         <!-- Load Google Drive hosted session file -->
-                        <div class="dropdown-item">
+                        <!-- <div class="dropdown-item">
                             <div id="igv-app-dropdown-google-drive-session-file-button"
                                  class="igv-app-dropdown-item-cloud-storage">
                                 <div>Google Drive</div>
                                 <div><img src="img/googledrive-dropdown-menu-item.png" width="18" height="18"></div>
                                 <div>...</div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Load session URL -->
                         <button class="dropdown-item" type="button" data-toggle="modal"

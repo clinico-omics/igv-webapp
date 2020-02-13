@@ -1,7 +1,6 @@
 /**
  * Configuration file for igv-webapp.   This is intentionally not a module so it can be used pre and post webpacking
  */
-
 "use strict";
 
 var igvwebConfig = {
@@ -18,7 +17,7 @@ var igvwebConfig = {
             queryParametersSupported: true,
             showChromosomeWidget: true,
             showSVGButton: false,
-            genome: "hg19",
+            genome: "hg38",
 
             // Supply a Google API key to access public Google resources.  This is optional.
             apiKey: "API_KEY"
@@ -34,5 +33,3 @@ var igvwebConfig = {
     }
 
 };
-
-
