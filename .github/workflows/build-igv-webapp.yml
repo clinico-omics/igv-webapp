@@ -48,8 +48,8 @@ jobs:
         url: ${{ secrets.DINGTALK_WEBHOOK }}
         type: markdown
         content: |
-          # [SUCCESS] IGV Webapp 镜像自动构建
-          点击<a href="hhttps://github.com/clinico-omics/igv-webapp">igv-webapp</a> 查看详情
+          #### [SUCCESS] IGV Webapp 镜像自动构建
+          点击 [igv-webapp](https://github.com/clinico-omics/igv-webapp) 查看详情
         at: Choppy Team
 
     - name: Dingtalk Robot Message
@@ -59,6 +59,6 @@ jobs:
         url: ${{ secrets.DINGTALK_WEBHOOK }}
         type: markdown
         content: |
-          # [FAILED] IGV Webapp 镜像自动构建
-          点击<a href="https://github.com/clinico-omics/igv-webapp">igv-webapp</a> 查看详情
+          #### [FAILED] IGV Webapp 镜像自动构建
+          点击 [igv-webapp](https://github.com/clinico-omics/igv-webapp) 查看详情
         at: Choppy Team
