@@ -10,6 +10,10 @@ fs.copySync(__dirname + '/../img', __dirname + '/../dist/img');
 fs.copySync(__dirname + '/../resources', __dirname + '/../dist/resources');
 fs.copySync(__dirname + '/../favicon.ico', __dirname + '/../dist/favicon.ico');
 
+// For Chinese
+fs.copySync(__dirname + '/../css/mirrors', __dirname + '/../dist/css/mirrors');
+fs.copySync(__dirname + '/../js/mirrors', __dirname + '/../dist/js/mirrors');
+
 const indexPath =  __dirname + '/../index.html';
 let ping = fs.readFileSync(indexPath, 'utf-8');
 const lines = ping.split(/\r?\n/);
