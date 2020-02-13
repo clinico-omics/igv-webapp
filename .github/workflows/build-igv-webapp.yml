@@ -1,10 +1,11 @@
-name: Build & Publish mldatascience-notebook
+name: Build & Publish IGV Webapp
 
 on:
   push:
     branches:    
-      - tgmc-master
       - dev
+    tags:
+      - 'v*'
 
 jobs:
   build:
@@ -17,7 +18,7 @@ jobs:
     - name: Configure environment
       id: config
       run: |
-        DOCKER_TAG=$(echo ${GITHUB_REF} | sed -e 's/refs\/tags\///')
+        DOCKER_TAG=$(echo ${GITHUB_REF} | grep 'tags' | sed -e 's/refs\/tags\///')
         echo ::set-output name=version::$DOCKER_TAG
 
     - name: Publish docker
